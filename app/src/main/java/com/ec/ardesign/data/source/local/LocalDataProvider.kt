@@ -17,5 +17,6 @@ class LocalDataProvider(
 
 
     suspend fun getObjectsFurniture() = objectDao.getObjectsFurnitures()
+
     suspend fun saveOrUpdate(objects: List<ObjectFurniture>) = objectDao.saveOrUpdate(objects)
 }

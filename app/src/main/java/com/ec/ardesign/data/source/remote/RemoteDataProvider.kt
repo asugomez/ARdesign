@@ -1,5 +1,6 @@
 package com.ec.ardesign.data.source.remote
 
+import com.ec.ardesign.data.model.ObjectFurniture
 import com.ec.ardesign.data.model.User
 import com.ec.ardesign.data.model.UserResponse
 import com.ec.ardesign.data.source.remote.api.ObjectFurnitureAPI
@@ -28,7 +29,7 @@ class RemoteDataProvider {
 
     private val service = retrofit.create(ObjectFurnitureAPI::class.java)
 
-    private suspend fun getUsers(hash: String): List<User> = service.getUsers(hash).users.toUsers()
+    suspend fun getUsers(hash: String): List<User> = service.getUsers(hash).users.toUsers()
 
     private fun List<User>.toUsers() = this.map { userResponse ->
         User(
@@ -39,4 +40,21 @@ class RemoteDataProvider {
             password = userResponse.password
         )
     }
+
+    suspend fun getObjectsFurniture(): List<ObjectFurniture>
+        = service.getObjectsFurniture().objects.toObjectsFurniture()
+
+    suspend fun getObjectsFromUser(id: String, hash:String): List<ObjectFurniture>
+            = service.getObjectsFurnitureFromUser(id,hash).objects.toObjectsFurniture()
+
+    private fun List<ObjectFurniture>.toObjectsFurniture() = this.map { objectFurniture ->
+        ObjectFurniture(
+            id = objectFurniture.id,
+            id_user = objectFurniture.id_user,
+            type = objectFurniture.type,
+            width = objectFurniture.width,
+            height = objectFurniture.height
+        )
+    }
+
 }

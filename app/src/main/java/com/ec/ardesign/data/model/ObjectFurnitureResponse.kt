@@ -5,6 +5,6 @@ import com.google.gson.annotations.SerializedName
 
 data class ObjectFurnitureResponse(
     @SerializedName("objects")
-    val objectFurnitureResponse: List<ObjectFurnitureResponse>
+    val objects: List<ObjectFurniture>
 
 )
