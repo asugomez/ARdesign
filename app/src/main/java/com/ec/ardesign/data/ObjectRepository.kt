@@ -1,4 +1,4 @@
 package com.ec.ardesign.data
 
-class DataProvider {
+class ObjectRepository {
 }
