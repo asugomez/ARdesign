@@ -1,12 +1,12 @@
 package com.ec.ardesign.ui.main
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import com.ec.ardesign.R
-//login
-class MainActivity : AppCompatActivity() {
+
+class CreationCompteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_creation_compte)
     }
 }
