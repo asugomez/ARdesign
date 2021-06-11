@@ -1,7 +1,8 @@
 package com.ec.ardesign.ui.main
 
+
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.ec.ardesign.R
 //login
 class MainActivity : AppCompatActivity() {
