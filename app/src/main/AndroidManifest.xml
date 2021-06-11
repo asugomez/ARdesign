@@ -15,7 +15,7 @@
             android:name=".ui.main.CreationCompteActivity"
             android:label="@string/title_activity_creation_compte"
             android:theme="@style/Theme.ARDesign.NoActionBar"></activity>
-        <activity android:name=".ui.main.MainActivity">
+        <activity android:name=".ui.main.SaveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
