@@ -9,9 +9,10 @@
 
     <string name="hello_first_fragment">Hello first fragment</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
-    <string name="id_category">Identifiants</string>
-    <string name="preference_last_name">Nom</string>
-    <string name="preference_first_name">Prénom</string>
-    <string name="preference_mail">Mail</string>
-    <string name="preference_pass">Mot de passe</string>
+
+    <string name="profil">Profil</string>
+    <string name="label_nom">Nom :</string>
+    <string name="label_prenom">Prénom :</string>
+    <string name="label_mail">E-mail :</string>
+    <string name="label_mdp">Mot de passe :</string>
 </resources>
