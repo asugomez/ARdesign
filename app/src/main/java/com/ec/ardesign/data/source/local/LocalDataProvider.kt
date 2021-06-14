@@ -2,7 +2,7 @@ package com.ec.ardesign.data.source.local
 
 import android.app.Application
 import androidx.room.Room
-import com.ec.ardesign.data.model.ObjectFurniture
+import com.ec.ardesign.data.model.Wall
 import com.ec.ardesign.data.source.local.database.ObjectFurnitureDatabase
 
 class LocalDataProvider(
@@ -18,5 +18,5 @@ class LocalDataProvider(
 
     suspend fun getObjectsFurniture() = objectDao.getObjectsFurnitures()
 
-    suspend fun saveOrUpdate(objects: List<ObjectFurniture>) = objectDao.saveOrUpdate(objects)
+    suspend fun saveOrUpdate(objects: List<Wall>) = objectDao.saveOrUpdate(objects)
 }

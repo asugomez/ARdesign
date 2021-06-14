@@ -1,8 +1,7 @@
 package com.ec.ardesign.data.source.remote
 
-import com.ec.ardesign.data.model.ObjectFurniture
+import com.ec.ardesign.data.model.Wall
 import com.ec.ardesign.data.model.User
-import com.ec.ardesign.data.model.UserResponse
 import com.ec.ardesign.data.source.remote.api.ObjectFurnitureAPI
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -41,14 +40,14 @@ class RemoteDataProvider {
         )
     }
 
-    suspend fun getObjectsFurniture(): List<ObjectFurniture>
+    suspend fun getObjectsFurniture(): List<Wall>
         = service.getObjectsFurniture().objects.toObjectsFurniture()
 
-    suspend fun getObjectsFromUser(id: String, hash:String): List<ObjectFurniture>
+    suspend fun getObjectsFromUser(id: String, hash:String): List<Wall>
             = service.getObjectsFurnitureFromUser(id,hash).objects.toObjectsFurniture()
 
-    private fun List<ObjectFurniture>.toObjectsFurniture() = this.map { objectFurniture ->
-        ObjectFurniture(
+    private fun List<Wall>.toObjectsFurniture() = this.map { objectFurniture ->
+        Wall(
             id = objectFurniture.id,
             id_user = objectFurniture.id_user,
             type = objectFurniture.type,

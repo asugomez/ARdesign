@@ -2,11 +2,11 @@ package com.ec.ardesign.data.source.local.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import com.ec.ardesign.data.model.ObjectFurniture
+import com.ec.ardesign.data.model.Wall
 
 @Database(
     entities = [
-        ObjectFurniture::class
+        Wall::class
     ],
     version = 1
 )
