@@ -10,7 +10,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class RemoteDataProvider {
 
-    private val BASE_URL = ""
+    //todo: verify if it works with /api or not
+    private val BASE_URL = "http://localhost/~asugomez/AR-design/api/"
 
     val interceptor: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
         this.level = HttpLoggingInterceptor.Level.BODY
