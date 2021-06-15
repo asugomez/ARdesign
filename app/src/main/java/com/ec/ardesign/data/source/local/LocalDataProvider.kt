@@ -13,10 +13,9 @@ class LocalDataProvider(
         Room.databaseBuilder(application, ObjectFurnitureDatabase::class.java, "room-database").build()
 
 
-    private val objectDao = roomDatabase.objectDao()
+    private val userDao = roomDatabase.userDao()
+    private val wallDao = roomDatabase.wallDao()
+    private val furnDao = roomDatabase.furnitureDao()
+    private val standFurnDao = roomDatabase.standFurnDao()
 
-
-    suspend fun getObjectsFurniture() = objectDao.getObjectsFurnitures()
-
-    suspend fun saveOrUpdate(objects: List<Wall>) = objectDao.saveOrUpdate(objects)
 }
