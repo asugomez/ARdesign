@@ -104,7 +104,7 @@ class LocalDataProvider(
 
     //////////////      STAND FURNITURE        //////////////
 
-    suspend fun saveOrUpdate(standFurns: List<StandardFurniture>){
+    suspend fun saveOrUpdateStandFurn(standFurns: List<StandardFurniture>){
         return standFurnDao.saveOrUpdate(standFurns)
     }
 

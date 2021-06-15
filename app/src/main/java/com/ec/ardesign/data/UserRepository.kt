@@ -30,4 +30,34 @@ class UserRepository(
             localDataProvider.connexion(pseudo, pass)
         }
     }
+
+    suspend fun getUsers(hash: String): List<User>{
+        return try{
+            remoteDataProvider.getUsers(hash).also {
+                localDataProvider.saveOrUpdateUser(it)
+            }
+        } catch (e:Exception){
+            localDataProvider.getUsers()
+        }
+    }
+
+    suspend fun getUserData(id_user: Int, hash: String): User{
+        return try{
+            remoteDataProvider.getUserData(id_user, hash).also {
+                localDataProvider.saveOrUpdateUser(listOf(it))
+            }
+        } catch (e: Exception){
+            localDataProvider.getUserData(id_user)
+        }
+    }
+
+    suspend fun mkUser(pseudo: String, pass: String, mail: String): User{
+        return try{
+            remoteDataProvider.mkUser(pseudo, pass, mail).also {
+                localDataProvider.saveOrUpdateUser(listOf(it))
+            }
+        } catch (e: Exception){
+            localDataProvider.mkUser(pseudo, mail, pass)
+        }
+    }
 }
