@@ -10,4 +10,13 @@ interface DataAPI {
     suspend fun connexion(@Query("user") user: String,
                           @Query("password") password: String) : User
 
+    @GET("users")
+    suspend fun getUsers(@Header("hash")hash: String): UserResponse
+
+
+    //////////////      WALL       //////////////
+
+    //////////////     FURNITURE       //////////////
+
+    //////////////      STAND FURNITURE        //////////////
 }
