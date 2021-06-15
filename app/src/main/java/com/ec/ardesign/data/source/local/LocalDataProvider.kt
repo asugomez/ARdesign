@@ -18,4 +18,15 @@ class LocalDataProvider(
     private val furnDao = roomDatabase.furnitureDao()
     private val standFurnDao = roomDatabase.standFurnDao()
 
+    //////////////      USER        //////////////
+    suspend fun connexion(pseudo: String, pass:String): String{
+        return userDao.connexion(pseudo, pass)
+    }
+
+    //////////////      WALL       //////////////
+
+    //////////////     FURNITURE       //////////////
+
+    //////////////      STAND FURNITURE        //////////////
+
 }
