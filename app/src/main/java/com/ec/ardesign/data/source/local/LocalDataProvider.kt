@@ -2,6 +2,7 @@ package com.ec.ardesign.data.source.local
 
 import android.app.Application
 import androidx.room.Room
+import com.ec.ardesign.data.model.User
 import com.ec.ardesign.data.model.Wall
 import com.ec.ardesign.data.source.local.database.ObjectFurnitureDatabase
 
@@ -17,5 +18,16 @@ class LocalDataProvider(
     private val wallDao = roomDatabase.wallDao()
     private val furnDao = roomDatabase.furnitureDao()
     private val standFurnDao = roomDatabase.standFurnDao()
+
+    //////////////      USER        //////////////
+    suspend fun connexion(pseudo: String, pass:String): User {
+        return userDao.connexion(pseudo, pass)
+    }
+
+    //////////////      WALL       //////////////
+
+    //////////////     FURNITURE       //////////////
+
+    //////////////      STAND FURNITURE        //////////////
 
 }
