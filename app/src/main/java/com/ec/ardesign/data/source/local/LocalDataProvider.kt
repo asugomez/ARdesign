@@ -24,6 +24,10 @@ class LocalDataProvider(
         return userDao.connexion(pseudo, pass)
     }
 
+    suspend fun saveOrUpdateUser(users: List<User>){
+        return userDao.saveOrUpdate(users)
+    }
+
     //////////////      WALL       //////////////
 
     //////////////     FURNITURE       //////////////
