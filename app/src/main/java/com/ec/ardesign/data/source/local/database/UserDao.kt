@@ -13,7 +13,7 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveOrUpdate(objects: List<User>)
 
-    @Query("SELECT * FROM users WHERE " +
+    @Query("SELECT * FROM user WHERE " +
             "pseudo=:pseudo AND pass=:pass")
     suspend fun connexion(pseudo: String, pass:String): User
 
