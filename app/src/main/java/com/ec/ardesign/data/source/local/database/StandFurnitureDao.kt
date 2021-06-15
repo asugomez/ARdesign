@@ -24,7 +24,7 @@ interface StandFurnitureDao {
 
     @Query("INSERT INTO standardFurniture(width, height, length, url) " +
             "VALUES(:width, :height, :length, :url)")
-    suspend fun addStandFurniture(width: String, height: String, length: String, url:String): StandardFurniture
+    suspend fun addStandFurniture(width: String, height: String, length: String, url:String)
 
 
 

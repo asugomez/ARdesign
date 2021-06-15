@@ -37,7 +37,7 @@ class LocalDataProvider(
     suspend fun getUserData(idUser: Int): User{
         return userDao.getUserData(idUser)
     }
-    suspend fun mkUser(pseudo: String, mail: String, pass: String): User{
+    suspend fun mkUser(pseudo: String, mail: String, pass: String){
         return userDao.mkUser(pseudo, mail, pass)
     }
 
@@ -63,7 +63,7 @@ class LocalDataProvider(
         return wallDao.getUsersWall(idUser, idWall)
     }
 
-    suspend fun addUsersWall(idUser: Int, width: String, height: String): Wall{
+    suspend fun addUsersWall(idUser: Int, width: String, height: String){
         return wallDao.addUsersWall(idUser, width, height)
     }
 
@@ -94,7 +94,7 @@ class LocalDataProvider(
         return furnDao.getUsersFurniture(idFurn, idUser)
     }
 
-    suspend fun addUsersFurniture(idUser: Int, width: String, height: String, length: String): Furniture{
+    suspend fun addUsersFurniture(idUser: Int, width: String, height: String, length: String){
         return furnDao.addUsersFurniture(idUser, width, height, length)
     }
 
@@ -116,7 +116,7 @@ class LocalDataProvider(
         return standFurnDao.getStandFurnitureData(id)
     }
 
-    suspend fun addStandFurniture(width: String, height: String, length: String, url:String): StandardFurniture{
+    suspend fun addStandFurniture(width: String, height: String, length: String, url:String){
         return standFurnDao.addStandFurniture(width, height, length, url)
     }
 

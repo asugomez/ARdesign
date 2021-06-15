@@ -51,11 +51,11 @@ class UserRepository(
         }
     }
 
-    suspend fun mkUser(pseudo: String, pass: String, mail: String): User{
+    suspend fun mkUser(pseudo: String, pass: String, mail: String){
         return try{
-            remoteDataProvider.mkUser(pseudo, pass, mail).also {
-                localDataProvider.saveOrUpdateUser(listOf(it))
-            }
+            remoteDataProvider.mkUser(pseudo, pass, mail)/*.also {
+                localDataProvider.saveOrUpdateUser(listOf(Use))
+            }*/
         } catch (e: Exception){
             localDataProvider.mkUser(pseudo, mail, pass)
         }

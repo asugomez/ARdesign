@@ -20,7 +20,7 @@ interface ARDesignAPI {
     @POST("users")
     suspend fun mkUser(@Query("pseudo") pseudo: String,
                        @Query("password") pass: String,
-                       @Query("mail") mail: String) : User
+                       @Query("mail") mail: String)
 
 
 
@@ -46,7 +46,7 @@ interface ARDesignAPI {
     suspend fun addUsersWall(@Path("idUser") id_user: Int,
                              @Query("width") width: String,
                              @Query("heigth") heigth: String,
-                             @Header("hash") hash: String): Wall
+                             @Header("hash") hash: String)
 
     @DELETE("users/{idUser}/wallss/{idWall}")
     suspend fun rmUsersWall(@Path("idUser") id_user: Int,
@@ -75,7 +75,7 @@ interface ARDesignAPI {
                                   @Query("width") width: String,
                                   @Query("heigth") heigth: String,
                                   @Query("length") length: String,
-                                  @Header("hash") hash: String): Furniture
+                                  @Header("hash") hash: String)
 
     @DELETE("users/{idUser}/furnitures/{idFurn}")
     suspend fun rmUsersFurniture(@Path("idUser") id_user: Int,
@@ -96,7 +96,7 @@ interface ARDesignAPI {
                                   @Query("heigth") heigth: String,
                                   @Query("length") length: String,
                                   @Query("url") url: String,
-                                  @Header("hash") hash: String): StandardFurniture
+                                  @Header("hash") hash: String)
 
     /*@DELETE("users/{idUser}/standardFurnitures/{idStanFurn}")
     suspend fun rmStandFurniture(@Path("idUser") id_user: Int,

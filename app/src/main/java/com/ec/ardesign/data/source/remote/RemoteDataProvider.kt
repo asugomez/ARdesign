@@ -44,7 +44,7 @@ class RemoteDataProvider {
         return service.getUserData(id_user, hash)
     }
 
-    suspend fun mkUser(pseudo: String, pass: String, mail: String): User{
+    suspend fun mkUser(pseudo: String, pass: String, mail: String){
         return service.mkUser(pseudo, pass, mail)
     }
 
@@ -66,7 +66,7 @@ class RemoteDataProvider {
         return service.getUsersWall(id_user, id_wall, hash)
     }
 
-    suspend fun addUsersWall(id_user: Int, width: String, height: String, hash: String): Wall{
+    suspend fun addUsersWall(id_user: Int, width: String, height: String, hash: String){
         return service.addUsersWall(id_user, width, height, hash)
     }
 
@@ -92,7 +92,7 @@ class RemoteDataProvider {
         return service.getUsersFurniture(id_user, id_furn, hash)
     }
 
-    suspend fun addUsersFurniture(id_user: Int, width: String, height: String, length: String, hash: String): Furniture{
+    suspend fun addUsersFurniture(id_user: Int, width: String, height: String, length: String, hash: String){
         return service.addUsersFurniture(id_user, width, height, length, hash)
     }
 
@@ -110,7 +110,7 @@ class RemoteDataProvider {
         return service.getStandFurnitureData(id, hash)
     }
 
-    suspend fun addStandFurniture(width: String, height: String, length: String, url: String, hash: String): StandardFurniture{
+    suspend fun addStandFurniture(width: String, height: String, length: String, url: String, hash: String){
         return service.addStandFurniture(width, height, length, url, hash)
     }
 

@@ -17,7 +17,7 @@ interface FurnitureDao {
             "FROM furniture")
     suspend fun getFurnitures(): List<Furniture>
 
-    @Query("SELECT * FROM furnitures " +
+    @Query("SELECT * FROM furniture " +
             "WHERE id=:idFurn AND idUser=:idUser")
     suspend fun getFurnitureData(idFurn: Int, idUser: Int): Furniture
 
@@ -31,7 +31,7 @@ interface FurnitureDao {
 
     @Query("INSERT INTO furniture(idUser, width, height, length) " +
             "VALUES(:idUser, :width, :height, :length)")
-    suspend fun addUsersFurniture(idUser: Int, width: String, height: String, length: String): Furniture
+    suspend fun addUsersFurniture(idUser: Int, width: String, height: String, length: String)
 
     @Query("DELETE FROM furniture " +
             "WHERE id=:idFurn AND idUser=:idUser")
