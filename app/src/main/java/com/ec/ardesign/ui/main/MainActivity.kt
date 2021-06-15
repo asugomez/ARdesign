@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -20,6 +21,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private var mdp: EditText?= null
     private var btnOK: Button?= null
 
+    private var btnEnregistrer: TextView?= null
+    private var btnInvite: TextView?= null
+
     private val viewModel by viewModels<MainViewModel>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,12 +31,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
         initialize()
         btnOK!!.setOnClickListener(this)
+        btnEnregistrer!!.setOnClickListener(this)
+        btnInvite!!.setOnClickListener(this)
     }
 
     fun initialize(){
         pseudo = findViewById(R.id.EditUser)
         mdp = findViewById(R.id.EditMdp)
         btnOK = findViewById(R.id.buttonOk)
+        btnEnregistrer= findViewById(R.id.Enregistrer)
+        btnInvite = findViewById(R.id.Invite)
+
     }
 
     override fun onClick(v: View?) {
@@ -50,20 +59,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     login(pseudoTxt, mdpTxt)
                 }
             }
+            R.id.Enregistrer ->
+            {
+                val versCreerCompte = Intent(this, CreationCompteActivity::class.java)
+                startActivity(versCreerCompte)
+            }
         }
     }
 
     fun login(pseudo: String, mdp:String){
         Toast.makeText(this@MainActivity,mdp, Toast.LENGTH_SHORT)
             .show()
-
         viewModel.connexion(pseudo, mdp)
         Log.i("PMR", "here in main activity login")
         Toast.makeText(this@MainActivity,viewModel.user.toString(), Toast.LENGTH_SHORT)
             .show()
         viewModel.user.observe(this){ viewState ->
             when(viewState){
-
                 is MainViewModel.ViewState.Content -> {
                     Toast.makeText(this@MainActivity,"im here in content ", Toast.LENGTH_SHORT)
                         .show()
