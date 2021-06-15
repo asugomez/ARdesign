@@ -19,19 +19,19 @@ interface WallDao {
 
     @Query("SELECT id, width, height " +
             "FROM wall WHERE id=:idWall")
-    suspend fun getWallData(idWall: Int)
+    suspend fun getWallData(idWall: Int): Wall
 
     @Query("SELECT * FROM wall " +
             "WHERE idUser=:idUser")
-    suspend fun getUsersWalls(idUser: Int)
+    suspend fun getUsersWalls(idUser: Int): List<Wall>
 
     @Query("SELECT * FROM wall " +
             "WHERE id=:idWall AND idUser=:idUser")
-    suspend fun getUsersWall(idUser: Int, idWall: Int)
+    suspend fun getUsersWall(idUser: Int, idWall: Int): Wall
 
     @Query("INSERT INTO wall(idUser, width, height) " +
             "VALUES(:idUser, :width, :height)")
-    suspend fun addUsersWall(idUser: Int, width: String, height: String)
+    suspend fun addUsersWall(idUser: Int, width: String, height: String): Wall
 
     @Query("DELETE FROM wall " +
             "WHERE id=:idWall AND idUser=:idUser")
