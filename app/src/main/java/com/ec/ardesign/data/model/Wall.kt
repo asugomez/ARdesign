@@ -5,10 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class User(
+data class Wall(
     @PrimaryKey val id: Int,
-    val pseudo: String,
-    val mail: String,
-    val pass: String,
-    val hash: String
+    val idUser: String,
+    val width: String,
+    val height: String
 )
