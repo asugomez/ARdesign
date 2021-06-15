@@ -3,7 +3,7 @@ package com.ec.ardesign.data.source.remote.api
 import com.ec.ardesign.data.model.*
 import retrofit2.http.*
 
-interface DataAPI {
+interface ARDesignAPI {
 
     //////////////      USER        //////////////
     @POST("authenticate")

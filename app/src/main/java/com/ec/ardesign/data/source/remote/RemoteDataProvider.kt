@@ -1,8 +1,6 @@
 package com.ec.ardesign.data.source.remote
 
-import com.ec.ardesign.data.model.Wall
-import com.ec.ardesign.data.model.User
-import com.ec.ardesign.data.source.remote.api.DataAPI
+import com.ec.ardesign.data.source.remote.api.ARDesignAPI
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -27,7 +25,7 @@ class RemoteDataProvider {
         .build()
 
 
-    private val service = retrofit.create(DataAPI::class.java)
+    private val service = retrofit.create(ARDesignAPI::class.java)
 
 
 

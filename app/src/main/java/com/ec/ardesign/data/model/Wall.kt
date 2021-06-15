@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey
 @Entity
 data class Wall(
     @PrimaryKey val id: Int,
-    @ColumnInfo(name = "idUser") val idUser: String,
-    @ColumnInfo(name = "width")  val width: String,
-    @ColumnInfo(name = "height") val height: String
+    val idUser: String,
+    val width: String,
+    val height: String
 )

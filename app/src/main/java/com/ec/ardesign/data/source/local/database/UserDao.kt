@@ -14,6 +14,6 @@ interface UserDao {
     suspend fun saveOrUpdate(objects: List<User>)
 
     @Query("SELECT * " +
-            "FROM users")
-    suspend fun getObjectsFurnitures(): List<Wall>
+            "FROM user")
+    suspend fun getUsers(): List<User>
 }

@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 @Entity
 data class User(
     @PrimaryKey val id: Int,
-    @ColumnInfo(name = "pseudo") val pseudo: String,
-    @ColumnInfo(name = "mail")  val mail: String,
-    @ColumnInfo(name = "pass") val pass: String,
-    @ColumnInfo(name = "hash") val hash: String
+    val pseudo: String,
+    val mail: String,
+    val pass: String,
+    val hash: String
 )

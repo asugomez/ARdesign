@@ -1,27 +1,16 @@
 package com.ec.ardesign.data
 
 import android.app.Application
-import com.ec.ardesign.data.model.Wall
 import com.ec.ardesign.data.source.local.LocalDataProvider
 import com.ec.ardesign.data.source.remote.RemoteDataProvider
 
-class ObjectRepository(
+class WallRepository(
     private val localDataProvider: LocalDataProvider,
     private val remoteDataProvider: RemoteDataProvider
-){
-    suspend fun getObjectsFurniture(): List<Wall>{
-        return try{
-            remoteDataProvider.getObjectsFurniture().also {
-                localDataProvider.saveOrUpdate(it)
-            }
-        } catch (e: Exception){
-            localDataProvider.getObjectsFurniture()
-        }
-    }
-
+) {
     companion object {
-        fun newInstance(application: Application): ObjectRepository {
-            return ObjectRepository(
+        fun newInstance(application: Application): WallRepository {
+            return WallRepository(
                 localDataProvider = LocalDataProvider(application),
                 remoteDataProvider = RemoteDataProvider()
             )

@@ -13,6 +13,6 @@ interface WallDao {
     suspend fun saveOrUpdate(objects: List<Wall>)
 
     @Query("SELECT * " +
-            "FROM walls")
-    suspend fun getObjectsFurnitures(): List<Wall>
+            "FROM wall")
+    suspend fun getWalls(): List<Wall>
 }
