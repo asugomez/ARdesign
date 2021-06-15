@@ -13,17 +13,17 @@
         android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.ARDesign">
-        <activity
-            android:name=".ui.main.CreationCompteActivity"
-            android:label="@string/title_activity_creation_compte"
-            android:theme="@style/Theme.ARDesign.NoActionBar">
-        </activity>
         <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.main.CreationCompteActivity"
+            android:label="@string/title_activity_creation_compte"
+            android:theme="@style/Theme.ARDesign.NoActionBar">
         </activity>
         <activity android:name=".ui.main.AccueilActivity"/>
         <activity android:name=".ui.main.SaveActivity"/>
