@@ -1,7 +1,9 @@
 package com.ec.ardesign.ui.main
 
 
+import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -37,18 +39,55 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id){
             R.id.buttonOk ->
             {
-                login()
+                val pseudoTxt = pseudo?.text.toString()
+                val mdpTxt = mdp?.text.toString()
+                if(pseudoTxt.isEmpty() or mdpTxt.isEmpty()) {
+                    Toast.makeText(
+                        this@MainActivity, "Data is missing", Toast.LENGTH_LONG
+                    ).show()
+                }
+                else{
+                    login(pseudoTxt, mdpTxt)
+                }
             }
         }
     }
 
-    fun login(){
-        Toast.makeText(this@MainActivity,pseudo?.text.toString(), Toast.LENGTH_SHORT)
+    fun login(pseudo: String, mdp:String){
+        Toast.makeText(this@MainActivity,mdp, Toast.LENGTH_SHORT)
             .show()
-        viewModel.connexion(pseudo?.text.toString(), mdp?.text.toString())
+
+        viewModel.connexion(pseudo, mdp)
+        Log.i("PMR", "here in main activity login")
+        Toast.makeText(this@MainActivity,viewModel.user.toString(), Toast.LENGTH_SHORT)
+            .show()
         viewModel.user.observe(this){ viewState ->
             when(viewState){
-                is MainViewModel.ViewState.Content ->{
+
+                is MainViewModel.ViewState.Content -> {
+                    Toast.makeText(this@MainActivity,"im here in content ", Toast.LENGTH_SHORT)
+                        .show()
+                    val versAccueil = Intent(this, AccueilActivity::class.java)
+                    //intent.flags =
+                    //    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    //versAccueil.putExtra("hash",  )
+                    startActivity(versAccueil)
+                }
+                is MainViewModel.ViewState.Error -> {
+                    Toast.makeText(this@MainActivity,"Something wrong happened", Toast.LENGTH_SHORT)
+                        .show()
+                    Toast.makeText(this@MainActivity, "${viewState.message} ", Toast.LENGTH_SHORT)
+                        .show()
+                }
+
+            }
+        }
+
+    }
+}
+
+/*
+is MainViewModel.ViewState.Content ->{
                     Toast.makeText(this@MainActivity, "yes", Toast.LENGTH_SHORT)
                         .show()
                 }
@@ -56,8 +95,4 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                     Toast.makeText(this@MainActivity, "${viewState.message} ", Toast.LENGTH_SHORT)
                         .show()
                 }
-            }
-        }
-
-    }
-}
+ */
