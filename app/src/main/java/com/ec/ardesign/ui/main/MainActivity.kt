@@ -43,6 +43,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     fun login(){
+        Toast.makeText(this@MainActivity,pseudo?.text.toString(), Toast.LENGTH_SHORT)
+            .show()
         viewModel.connexion(pseudo?.text.toString(), mdp?.text.toString())
         viewModel.user.observe(this){ viewState ->
             when(viewState){
