@@ -27,9 +27,12 @@ class RemoteDataProvider {
 
     private val service = retrofit.create(ARDesignAPI::class.java)
 
-
-
     //////////////      USER        //////////////
+    suspend fun connexion(pseudo: String, pass:String): String{
+        return service.connexion(pseudo, pass).hash
+    }
+
+
 
     //////////////      WALL       //////////////
 
