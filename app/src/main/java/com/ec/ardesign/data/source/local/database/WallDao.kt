@@ -10,7 +10,7 @@ import com.ec.ardesign.data.model.Wall
 interface WallDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveOrUpdate(objects: List<Wall>)
+    suspend fun saveOrUpdate(walls: List<Wall>)
 
 
     @Query("SELECT * " +

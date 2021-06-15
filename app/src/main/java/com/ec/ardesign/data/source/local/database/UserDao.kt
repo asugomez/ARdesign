@@ -27,5 +27,5 @@ interface UserDao {
 
     @Query("INSERT INTO user(pseudo,mail,pass) " +
             "VALUES(:pseudo, :mail, :pass")
-    suspend fun mkUser(pseudo: String, mail: String, pass: String)
+    suspend fun mkUser(pseudo: String, mail: String, pass: String): User
 }

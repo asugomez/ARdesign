@@ -11,7 +11,7 @@ import com.ec.ardesign.data.model.StandardFurniture
 interface StandFurnitureDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun saveOrUpdate(users: List<StandardFurniture>)
+    suspend fun saveOrUpdate(standFurns: List<StandardFurniture>)
 
     @Query("SELECT *" +
             " FROM standardFurniture")
