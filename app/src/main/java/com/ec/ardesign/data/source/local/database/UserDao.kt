@@ -13,9 +13,9 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveOrUpdate(objects: List<User>)
 
-    @Query("SELECT hash FROM users WHERE " +
+    @Query("SELECT * FROM users WHERE " +
             "pseudo=:pseudo AND pass=:pass")
-    suspend fun connexion(pseudo: String, pass:String): String
+    suspend fun connexion(pseudo: String, pass:String): User
 
     @Query("SELECT * " +
             "FROM user")

@@ -1,5 +1,6 @@
 package com.ec.ardesign.data.source.remote
 
+import com.ec.ardesign.data.model.User
 import com.ec.ardesign.data.source.remote.api.ARDesignAPI
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -28,8 +29,8 @@ class RemoteDataProvider {
     private val service = retrofit.create(ARDesignAPI::class.java)
 
     //////////////      USER        //////////////
-    suspend fun connexion(pseudo: String, pass:String): String{
-        return service.connexion(pseudo, pass).hash
+    suspend fun connexion(pseudo: String, pass:String): User {
+        return service.connexion(pseudo, pass)
     }
 
 
