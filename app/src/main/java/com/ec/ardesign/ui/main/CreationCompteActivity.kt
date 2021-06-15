@@ -11,6 +11,10 @@ import android.widget.Toast
 import com.ec.ardesign.R
 import com.ec.ardesign.data.UserRepository
 import com.ec.ardesign.data.model.User
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 
 class CreationCompteActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -18,6 +22,13 @@ class CreationCompteActivity : AppCompatActivity(), View.OnClickListener {
     private var mdp: EditText?= null
     private var mail: EditText?= null
     private var btn: Button?= null
+
+    val userRepository by lazy { UserRepository.newInstance(application) }
+
+    private val activityScope = CoroutineScope(
+        SupervisorJob()
+                + Dispatchers.Main
+    )
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,7 +49,23 @@ class CreationCompteActivity : AppCompatActivity(), View.OnClickListener {
         when (v?.id){
             R.id.buttonCréer ->
             {
-                //call api
+                activityScope.launch {
+                    try {
+                        val hash = userRepository.mkUser(pseudo.toString(),mdp.toString(),mail.toString())
+                        if(hash!=null)
+                        {
+                            val versMain: Intent= Intent(this@CreationCompteActivity, AccueilActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                            startActivity(versMain)
+                        }
+                        else
+                            Toast.makeText(this@CreationCompteActivity, "Erreur", Toast.LENGTH_SHORT).show()
+                    }
+                    catch (e:Exception)
+                    {
+                        Toast.makeText(this@CreationCompteActivity, "${e.message}", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
         }
     }
