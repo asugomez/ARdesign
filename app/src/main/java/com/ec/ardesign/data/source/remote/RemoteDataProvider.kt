@@ -110,8 +110,8 @@ class RemoteDataProvider {
         return service.getStandFurnitureData(id, hash)
     }
 
-    suspend fun addStandFurniture(id_user: Int, width: String, height: String, length: String, url: String, hash: String): StandardFurniture{
-        return service.addStandFurniture(id_user, width, height, length, url, hash)
+    suspend fun addStandFurniture(width: String, height: String, length: String, url: String, hash: String): StandardFurniture{
+        return service.addStandFurniture(width, height, length, url, hash)
     }
 
 

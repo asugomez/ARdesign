@@ -91,9 +91,8 @@ interface ARDesignAPI {
     suspend fun getStandFurnitureData(@Path("id") id: Int,
                                       @Header("hash") hash: String): StandardFurniture
 
-    @POST("users/{idUser}/standardFurnitures")
-    suspend fun addStandFurniture(@Path("idUser") id_user: Int,
-                                  @Query("width") width: String,
+    @POST("standardFurnitures")
+    suspend fun addStandFurniture(@Query("width") width: String,
                                   @Query("heigth") heigth: String,
                                   @Query("length") length: String,
                                   @Query("url") url: String,
