@@ -20,7 +20,7 @@ interface ARDesignAPI {
     @POST("users")
     suspend fun mkUser(@Query("pseudo") pseudo: String,
                        @Query("password") pass: String,
-                       @Query("mail") mail: String) : User
+                       @Query("mail") mail: String)
 
 
 
@@ -44,12 +44,14 @@ interface ARDesignAPI {
 
     @POST("users/{idUser}/walls")
     suspend fun addUsersWall(@Path("idUser") id_user: Int,
-                                  @Query("width") width: String,
-                                  @Query("heigth") heigth: String): Wall
+                             @Query("width") width: String,
+                             @Query("heigth") heigth: String,
+                             @Header("hash") hash: String)
 
     @DELETE("users/{idUser}/wallss/{idWall}")
     suspend fun rmUsersWall(@Path("idUser") id_user: Int,
-                                 @Path("idWall") id_wall: Int)
+                            @Path("idWall") id_wall: Int,
+                            @Header("hash") hash: String)
 
     //////////////     FURNITURE       //////////////
     @GET("furnitures")
@@ -72,11 +74,13 @@ interface ARDesignAPI {
     suspend fun addUsersFurniture(@Path("idUser") id_user: Int,
                                   @Query("width") width: String,
                                   @Query("heigth") heigth: String,
-                                  @Query("length") length: String): Furniture
+                                  @Query("length") length: String,
+                                  @Header("hash") hash: String)
 
     @DELETE("users/{idUser}/furnitures/{idFurn}")
     suspend fun rmUsersFurniture(@Path("idUser") id_user: Int,
-                                 @Path("idFurn") id_furn: Int)
+                                 @Path("idFurn") id_furn: Int,
+                                 @Header("hash") hash: String)
 
 
     //////////////      STAND FURNITURE        //////////////
@@ -87,13 +91,15 @@ interface ARDesignAPI {
     suspend fun getStandFurnitureData(@Path("id") id: Int,
                                       @Header("hash") hash: String): StandardFurniture
 
-    @POST("users/{idUser}/standardFurnitures")
-    suspend fun addStandFurniture(@Path("idUser") id_user: Int,
-                                  @Query("width") width: String,
+    @POST("standardFurnitures")
+    suspend fun addStandFurniture(@Query("width") width: String,
                                   @Query("heigth") heigth: String,
-                                  @Query("url") url: String): StandardFurniture
+                                  @Query("length") length: String,
+                                  @Query("url") url: String,
+                                  @Header("hash") hash: String)
 
-    @DELETE("users/{idUser}/standardFurnitures/{idStanFurn}")
+    /*@DELETE("users/{idUser}/standardFurnitures/{idStanFurn}")
     suspend fun rmStandFurniture(@Path("idUser") id_user: Int,
-                                 @Path("idStanFurn") id_standFurn: Int)
+                                 @Path("idStanFurn") id_standFurn: Int,
+                                 @Header("hash") hash: String)*/
 }

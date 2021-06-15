@@ -1,6 +1,8 @@
 package com.ec.ardesign.data
 
 import android.app.Application
+import com.ec.ardesign.data.model.Furniture
+import com.ec.ardesign.data.model.Wall
 import com.ec.ardesign.data.source.local.LocalDataProvider
 import com.ec.ardesign.data.source.remote.RemoteDataProvider
 
@@ -16,6 +18,67 @@ class FurnitureRepository(
             )
         }
     }
+
+    suspend fun getFurnitures(hash: String): List<Furniture>{
+        return try{
+            remoteDataProvider.getFurnitures(hash).also {
+                localDataProvider.saveOrUpdateFurnitures(it)
+            }
+        } catch (e:Exception){
+            localDataProvider.getFurnitures()
+        }
+    }
+
+    suspend fun getFurnitureData(idFurn: Int, idUser: Int, hash: String): Furniture{
+        return try{
+            remoteDataProvider.getFurnitureData(idFurn, hash).also {
+                localDataProvider.saveOrUpdateFurnitures(listOf(it))
+            }
+        } catch (e:Exception){
+            localDataProvider.getFurnitureData(idFurn, idUser)
+        }
+    }
+
+    suspend fun getUsersFurnitures(idUser: Int, hash: String): List<Furniture>{
+        return try{
+            remoteDataProvider.getUsersFurnitures(idUser, hash).also {
+                localDataProvider.saveOrUpdateFurnitures(it)
+            }
+        } catch (e:Exception){
+            localDataProvider.getUsersFurnitures(idUser)
+        }
+    }
+
+    suspend fun getUsersFurniture(idUser: Int,  idFurn: Int, hash: String): Furniture{
+        return try{
+            remoteDataProvider.getUsersFurniture(idUser, idFurn, hash).also {
+                localDataProvider.saveOrUpdateFurnitures(listOf(it))
+            }
+        } catch (e:Exception){
+            localDataProvider.getUsersFurniture(idFurn, idUser)
+        }
+    }
+
+    suspend fun addUsersFurniture(id_user: Int, width: String, height: String, length: String, hash: String){
+        return try{
+            remoteDataProvider.addUsersFurniture(id_user, width, height, length, hash)
+        } catch (e:Exception){
+            localDataProvider.addUsersFurniture(id_user, width, height, length)
+        }
+    }
+
+    suspend fun rmUsersFurniture(id_user: Int, id_furn: Int, hash: String){
+        return try{
+            remoteDataProvider.rmUsersFurniture(id_user, id_furn, hash)
+        } catch (e:Exception){
+            localDataProvider.rmUsersFurniture(id_furn, id_user)
+        }
+    }
+
+
+
+
+
 }
 
 
