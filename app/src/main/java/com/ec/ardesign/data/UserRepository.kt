@@ -22,7 +22,6 @@ class UserRepository(
 
     suspend fun connexion(pseudo: String, pass:String): User {
         return try{
-            Log.d("PMR", "here in userRepository")
             remoteDataProvider.connexion(pseudo,pass).also {
                 localDataProvider.saveOrUpdateUser(listOf(it)) // dont know if it works
             }

@@ -25,7 +25,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.079"
+        app:layout_constraintVertical_bias="0.121"
         app:srcCompat="@drawable/logo" />
 
     <EditText
@@ -36,44 +36,21 @@
         android:inputType="textPassword"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
+        app:layout_constraintHorizontal_bias="0.843"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/EditUser"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/Mdp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mot de passe"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/EditMdp"
-        app:layout_constraintEnd_toStartOf="@+id/EditMdp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/EditMdp" />
 
     <AutoCompleteTextView
         android:id="@+id/EditUser"
         android:layout_width="192dp"
         android:layout_height="55dp"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="64dp"
         android:layout_marginTop="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/User"
         app:layout_constraintTop_toBottomOf="@+id/Connexion"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/User"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:text="User"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/EditUser"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/EditUser"
-        app:layout_constraintVertical_bias="0.555" />
+        app:layout_constraintVertical_bias="0.003" />
 
     <Button
         android:id="@+id/buttonOk"
@@ -83,10 +60,35 @@
         android:text="OK"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Connexion"
         app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/User"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="64dp"
+        android:text="User"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/EditUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/EditUser"
+        app:layout_constraintVertical_bias="0.535" />
+
+    <TextView
+        android:id="@+id/Mdp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mot de passe"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/EditMdp"
+        app:layout_constraintEnd_toStartOf="@+id/EditMdp"
+        app:layout_constraintHorizontal_bias="0.575"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/EditMdp"
+        app:layout_constraintVertical_bias="0.428" />
 
     <TextView
         android:id="@+id/Invite"

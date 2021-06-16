@@ -31,95 +31,89 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/EditNom"
+        android:id="@+id/EditMail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Nom"
-        app:layout_constraintTop_toTopOf="@+id/Nom"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="165dp" />
-
-    <TextView
-        android:id="@+id/Nom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
-        android:text="Nom"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/Mail"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/Mail"
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/EditMdpCreation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="28dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:textSize="20sp"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/MdpCreation"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/MdpCreation"
-        app:layout_constraintVertical_bias="0.619"
-        tools:layout_editor_absoluteX="165dp" />
-
-    <EditText
-        android:id="@+id/EditPrénom"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Prénom"
-        app:layout_constraintTop_toTopOf="@+id/Prénom"
-        app:layout_constraintVertical_bias="0.238"
-        tools:layout_editor_absoluteX="165dp" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/Mail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
         android:text="Mail"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Prénom" />
+        app:layout_constraintTop_toBottomOf="@+id/UserCreation" />
 
-    <TextView
-        android:id="@+id/Prénom"
+    <EditText
+        android:id="@+id/EditUserCreation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
-        android:text="Prénom"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/UserCreation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/UserCreation"
+        app:layout_constraintVertical_bias="0.529" />
+
+    <TextView
+        android:id="@+id/UserCreation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="56dp"
+        android:text="User"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nom" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <TextView
         android:id="@+id/MdpCreation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
         android:text="Mot de passe"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Mail" />
 
-    <EditText
-        android:id="@+id/EditMail"
+    <Button
+        android:id="@+id/buttonCréer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/Mail"
-        app:layout_constraintTop_toTopOf="@+id/Mail"
-        app:layout_constraintVertical_bias="0.38"
-        tools:layout_editor_absoluteX="165dp" />
+        android:layout_marginTop="44dp"
+        android:text="Créer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/EditMdpCreation"
+        app:layout_constraintVertical_bias="0.068" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
