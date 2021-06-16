@@ -51,15 +51,7 @@ class CreationCompteActivity : AppCompatActivity(), View.OnClickListener {
             {
                 activityScope.launch {
                     try {
-                        val hash = userRepository.mkUser(pseudo.toString(),mdp.toString(),mail.toString())
-                        if(hash!=null)
-                        {
-                            val versMain: Intent= Intent(this@CreationCompteActivity, AccueilActivity::class.java)
-                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                            startActivity(versMain)
-                        }
-                        else
-                            Toast.makeText(this@CreationCompteActivity, "Erreur", Toast.LENGTH_SHORT).show()
+                        userRepository.mkUser(pseudo.toString(),mdp.toString(),mail.toString())
                     }
                     catch (e:Exception)
                     {
